@@ -1,0 +1,14 @@
+{
+  "name": "tolltip",
+  "version": "1.0.0",
+  "description": "Tooltip component",
+  "main": "tooltip.js",
+  "license": "MIT",
+  "keywords": [
+    "tooltip cotrol",
+    "tooltip component"
+  ],
+  "dependencies": {
+    "base": "../base"
+  }
+}

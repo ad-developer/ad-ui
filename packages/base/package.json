@@ -1,0 +1,12 @@
+{
+  "name": "base",
+  "version": "1.0.0",
+  "description": "base",
+  "main": "base.js",
+  "license": "MIT",
+  "keywords":[
+    "ad",
+    "base",
+    "component"
+  ]
+}

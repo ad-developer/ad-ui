@@ -1,0 +1,14 @@
+{
+  "name": "page-controller",
+  "version": "1.0.0",
+  "description": "Page controller component",
+  "main": "page-controller.js",
+  "license": "MIT",
+  "keywords": [
+    "page-controller",
+    "controller"
+  ],
+  "dependencies": {
+    "base": "../base"
+  }
+}
