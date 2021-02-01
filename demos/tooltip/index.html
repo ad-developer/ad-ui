@@ -2,120 +2,48 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Control Manager</title>
-    <title>AD Framework Demos</title>
+    <title>JavaScript UI Framework Demos - Tooltip</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
-    <script src="../assets/ad.normalize.css.js" charset="utf-8"></script>
-    <script src="../assets/demo-styles.css.js" charset="utf-8"></script>
-    <script src="../assets/ad.cm.js" charset="utf-8"></script>
+    <script src="../assets/tooltip.css.js" charset="utf-8"></script>
+
+    <style media="screen">
+
+    </style>
+
   </head>
   <body>
+
     <div class="container">
-      <div class="" ad-id="c1" ad-container ad-new-engine>
-        <div class="row" ad-id="id_parent">
-          <div class="" ad-id="f1" ad-subcontainer>
-            <div class="col">
-              <label for="firstName">First Name</label>
-              <input type="text" name="" value="" id="firstName">
-            </div>
-            <div class="col">
-              <label for="lastName">Lst Name</label>
-              <input type="text" name="" value="" ad-id="lastName">
-            </div>
-          </div>
-        </div>
-        <div class="row">
-        <div class="" ad-id="f2">
-          <div class="col">
-            <label for="address">Address</label>
-            <input type="text" name="" value="" ad-id="address">
-          </div>
-          <div class="col">
-            <label for="state">State</label>
-            <select class="" name="" ad-id="state" id="state">
-              <option value="">Select a state</option>
-              <option value="AK">AK</option>
-              <option value="AZ">AZ</option>
-              <option value="CA">CA</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      </div>
-      <div class="row">
-        <pre id="res-json">
-        </pre>
-      </div>
-      <div class="row">
-        <div class="col">
-          <button type="button" name="button" id="g-data">Get Data</button>
-        </div>
-        <div class="col">
-          <button type="button" name="button" id="g-json">Get Json</button>
-        </div>
-        <div class="col">
-          <button type="button" name="button" id="replaceSubcontainerBtn">Replace Subcontainer</button>
-        </div>
-      </div>
+      <a href="#" title="this is a cool link" test>Link is here</a>
+
+      <button type="button" name="button" title="button tooltip" test style="margin-left: 300px">Ok</button>
+      <button type="button" name="button" title="button tooltip 1 and this is really very long tooltip so let's see how it works" test btn>Ok 1</button>
+      <button type="button" name="button" title="button tooltip 2" test>Ok 2</button>
+      <button type="button" name="button" title="button tooltip 3" test>Ok 3</button>
+      <a href="#" title="this is a cool link 1" test>Link is here 1</a>
+      <a href="#" title="this is a cool link 2" test>Link is here 2</a>
+      <a href="#" title="this is a cool link 3" test ad-tooltip-y="50" ad-tooltip-x="50">Link is here 3</a>
     </div>
+
+    <script type="text/javascript">
+      var ad = ad || {};
+      ad.tt = 'new cool title from the click';
+    </script>
+    <script src="../assets/component.js" charset="utf-8"></script>
+    <script src="../assets/tooltip.js" charset="utf-8"></script>
+    <script src="../assets/page-controller.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      var els = document.querySelectorAll('[test]');
+      for (var i = 0; i < els.length; i++) {
+        var el = els[i];
+        ad.tooltip.ADTooltip.attachTo(el);
+      }
+      document.querySelector('[btn]')
+      .addEventListener('click',(e)=>{
+        e.target.setAttribute('title', ad.tt);
+        var tt = ad.tooltip.ADTooltip.getInstance(e.target);
+        tt.reset();
+      });
+    </script>
   </body>
-  <script type="text/javascript">
-    // JSON highliter
-    function syntaxHighlight(json) {
-        json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-        return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
-            var cls = 'number';
-            if (/^"/.test(match)) {
-                if (/:$/.test(match)) {
-                    cls = 'key';
-                } else {
-                    cls = 'string';
-                }
-            } else if (/true|false/.test(match)) {
-                cls = 'boolean';
-            } else if (/null/.test(match)) {
-                cls = 'null';
-            }
-            return '<span class="' + cls + '">' + match + '</span>';
-        });
-    };
-
-    ad.cm.ADControlManager.build('c1');
-    document.getElementById('g-json')
-      .addEventListener('click', function(){
-        let c = ad.cm.ADControlManager.getContainer('c1');
-        let json = c.getJson();
-        json = JSON.stringify(json, undefined, 2);
-        json = syntaxHighlight(json);
-        document.getElementById('res-json').innerHTML = json;
-      });
-
-    let json = {
-      c: 'div',
-      "ad-id": 'f1',
-      'ad-new-subcontainer': '',
-      'ad-new-subcontainer-demo': '',
-      cs: [{
-        c:'div',
-        "ad-id": 'test-id',
-        cs:[{
-            "c": "label",
-            "for": "lastNameReplaces",
-            "ad-id": "lastNameReplacesedLbl",
-            "ad_inner_text": "Last Name Replaced"
-          },
-          {
-            "c": "input",
-            "type": "text",
-            "ad-id": "lastNameReplaces"
-          }
-        ]
-      }]
-    };
-    document.getElementById('replaceSubcontainerBtn')
-      .addEventListener('click', function(){
-          ad.cm.ADControlManager.build(json);
-      });
-
-  </script>
 </html>

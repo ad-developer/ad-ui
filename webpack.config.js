@@ -93,7 +93,8 @@ module.exports = [
       filename: '[name].' + (IS_PROD ? 'min.' : '') + 'js',
       path: OUT_PATH,
       publicPath: PUBLIC_PATH,
-      library: ['ad'],
+      library: ['ad','[name]'],
+      //libraryTarget: 'umd'
     },
     devServer: {
       disableHostCheck: true,
@@ -147,9 +148,9 @@ module.exports = [
     plugins: [
       new MiniCssExtractPlugin({
         filename: '[name].' + (IS_PROD ? 'min.' : '') + 'css',
-
       }),
       createBannerPlugin(),
+      new webpack.optimize.ModuleConcatenationPlugin(),
     ],
   },
 ];

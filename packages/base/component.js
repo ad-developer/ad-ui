@@ -27,9 +27,7 @@ const strings = {
   INSTANCE_KEY: 'ad-base',
 };
 
-/**
- * @template F
- */
+/** Class representing a base ADComponent. */
 export default class ADComponent {
   /**
    * @param {!Element} root
@@ -57,7 +55,6 @@ export default class ADComponent {
 
   /**
    * @param {!Element} root
-   * @param {F=} foundation
    * @param {...?} args
    */
   constructor(root, ...args) {
@@ -67,6 +64,9 @@ export default class ADComponent {
     this.initSyncWithDOM();
   }
 
+  /**
+   * @param {...?} args
+   */
   init(/* ...args*/) {
     // Subclasses can override this to do any additional setup work that would be considered part of a
     // "constructor". Essentially, it is a hook into the parent constructor before the component is
@@ -88,7 +88,7 @@ export default class ADComponent {
   /**
    * Wrapper method to add an event listener to the component's root element. This is most useful when
    * listening for custom events.
-   * @param {string} evtType
+   * @param {!string} evtType
    * @param {!Function} handler
    */
   listen(evtType, handler) {
@@ -98,7 +98,7 @@ export default class ADComponent {
   /**
    * Wrapper method to remove an event listener to the component's root element. This is most useful when
    * unlistening for custom events.
-   * @param {string} evtType
+   * @param {!string} evtType
    * @param {!Function} handler
    */
   unlisten(evtType, handler) {
@@ -108,8 +108,8 @@ export default class ADComponent {
   /**
    * Fires a cross-browser-compatible custom event from the component root of the given type,
    * with the given data.
-   * @param {string} evtType
-   * @param {!Object} evtData
+   * @param {!string} evtType
+   * @param {Object?} evtData
    * @param {boolean=} shouldBubble
    */
   emit(evtType, evtData, shouldBubble = false) {

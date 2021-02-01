@@ -21,13 +21,13 @@
  * SOFTWARE.
  */
 
-import ADComponent from './node_modules/base/component';
+//import ADComponent from '../base/component';
 
 const strings = {
   INSTANCE_KEY: 'ad-page-controller',
 };
 
-export default class ADPageController extends ADComponent {
+export default class ADPageController extends ad.component.ADComponent {
   /**
     * @param {!Element} root
     * @return {!ADController}

@@ -35,6 +35,16 @@ $ad-font-size-base: 1rem !default;
 $ad-font-weight-base: 400 !default;
 $ad-line-height-base: 1.5 !default;
 
-// Margins
+// z position
+$ad-z-position-top: 10000 !default;
 
 // Paddings
+
+// TOOLTIP
+$ad-tooltip-text-color: $ad-white-color !default;
+$ad-tooltip-background-color: #616161e6 !default;
+$ad-tooltip-min-height: 24px !default;
+$ad-tooltip-max-width: 250px !default;
+$ad-tooltip-padding: 8px !default;
+$ad-tooltip-corner-radius: 2px !default;
+$ad-tooltip-z-position: $ad-z-position-top;
