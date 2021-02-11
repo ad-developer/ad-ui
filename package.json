@@ -2,12 +2,12 @@
   "name": "ad-ui",
   "version": "1.0.0",
   "description": "simple javascript ui library",
-  "author": "A.D.",
+  "author": "A.D. Software Labs",
   "license": "MIT",
   "scripts": {
     "clean": "del-cli dist/**",
     "build": "mkdirp dist && webpack --mode=development --progress --color",
-    "build:min": "mkdirp dist && cross-env AD_ENV=production  webpack --mode=production --progress --color",
+    "build:min": "mkdirp dist && cross-env AD_ENV=production  webpack -p --mode=production --progress --color",
     "dist": "npm run clean && npm run build && npm run build:min",
     "dev": "npm run clean && cross-env AD_ENV=development webpack-dev-server --content-base demos --inline --hot --host 0.0.0.0",
     "fix:js": "eslint --fix packages webpack.config.js karma.conf.js",
@@ -57,6 +57,7 @@
     "stylelint-scss": "^3.13.0",
     "stylelint-selector-bem-pattern": "^2.1.0",
     "testdouble": "^3.16.1",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.34.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.2"

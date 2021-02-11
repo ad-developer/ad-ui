@@ -26,7 +26,9 @@
 */
 const path = require('path');
 // const glob = require('glob');
-const webpack = require('webpack');
+// const webpack = require('webpack');
+
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const OUT_PATH = path.resolve('./dist');
 const PUBLIC_PATH = '/assets/';
@@ -67,19 +69,26 @@ const CSS_LOADER_CONFIG = [
   },
 ];
 
-const banner = [
-  '/*!',
-  ' Simple Javascript UI library to build modern and elegant web UI',
-  ` Copyright (c) ${new Date().getFullYear()} A.D. Software Labs`,
-  ' License: MIT',
-  '*/',
-].join('\n');
+// const banner = [
+//  '/*!',
+//  ' Simple Javascript UI library to build modern and elegant web UI',
+//  ` Copyright (c) ${new Date().getFullYear()} A.D. Software Labs`,
+//  ' License: MIT',
+//  '*/',
+// ].join('\n');
 
-const createBannerPlugin = () => new webpack.BannerPlugin({
-  banner: banner,
-  raw: true,
-  entryOnly: true,
-});
+// const createBannerPlugin = () => new webpack.BannerPlugin({
+//  banner: banner,
+//  raw: true,
+//  entryOnly: true,
+// });
+
+const uglifyOptions = {
+  output: {
+    comments: false, // Removes repeated @license comments and other code comments.
+  },
+  sourceMap: true,
+};
 
 module.exports = [
   {
@@ -93,8 +102,8 @@ module.exports = [
       filename: '[name].' + (IS_PROD ? 'min.' : '') + 'js',
       path: OUT_PATH,
       publicPath: PUBLIC_PATH,
-      library: ['ad','[name]'],
-      //libraryTarget: 'umd'
+      library: ['ad', '[name]'],
+      // libraryTarget: 'umd'
     },
     devServer: {
       disableHostCheck: true,
@@ -113,9 +122,10 @@ module.exports = [
     },
     optimization: {
       minimize: IS_PROD ? true : false,
+      minimizer: [new UglifyJSPlugin({uglifyOptions})],
     },
     plugins: [
-      createBannerPlugin(),
+      // createBannerPlugin(),
     ],
   },
   {
@@ -149,8 +159,7 @@ module.exports = [
       new MiniCssExtractPlugin({
         filename: '[name].' + (IS_PROD ? 'min.' : '') + 'css',
       }),
-      createBannerPlugin(),
-      new webpack.optimize.ModuleConcatenationPlugin(),
+      // createBannerPlugin(),
     ],
   },
 ];
@@ -176,7 +185,7 @@ if (IS_DEV) {
       }],
     },
     plugins: [
-      createBannerPlugin(),
+      // createBannerPlugin(),
     ],
   });
 };

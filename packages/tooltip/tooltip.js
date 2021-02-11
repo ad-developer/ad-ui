@@ -1,26 +1,3 @@
-/**
- * MIT License
- * Copyright (c) 2021 A.D. Software Labs
-
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
-
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
-
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
 // import ADComponent from '../base/component';
 
 const strings = {
@@ -87,9 +64,6 @@ export default class ADTooltip extends ad.component.ADComponent {
     // Attach event handlers
     this.listen(strings.MOUSE_OVER, (e)=>this.mouseOverEventHandler_(e));
     this.listen(strings.MOUSE_LEAVE, (e)=>this.mouseOutEventHandler_(e));
-
-    // Attacch window resize handler 
-    window.addEventListener('resize', (e)=>this.windowResizeHandler_(e));
   }
 
   /**
@@ -121,24 +95,34 @@ export default class ADTooltip extends ad.component.ADComponent {
       this.insertAfter_(this.root_, tooltip);
     } else {
       this.toolTip_.innerHTML = toolTipContent;
+      // Remove css width, max/min width to get correct width siaing
+      for (let index = 0, prop; prop = ['max-width', 'min-width', 'width', 'white-space'][index]; index++) {
+        this.toolTip_.style.removeProperty(prop);
+      }
     }
-    
+
     let whiteSpace = 'nowrap';
-    let maxWidth = 'none';
+    let maxWidth;
+
     if (this.toolTip_.clientWidth > this.maxLength_) {
       whiteSpace = 'normal';
       maxWidth = this.maxLength_ + 'px';
+    } else {
+      maxWidth = this.toolTip_.clientWidth + 'px';
     }
 
-    this.toolTip_.style['white-space'] = whiteSpace
+    this.toolTip_.style['white-space'] = whiteSpace;
     this.toolTip_.style['max-width'] = maxWidth;
-
+    this.toolTip_.style['min-width'] = maxWidth;
+    this.toolTip_.style.width = maxWidth;
   }
 
   /**
     * @private
     */
   mouseOverEventHandler_() {
+    const pos = this.getTooltipPosition_();
+    this.setPosition_(pos.x, pos.y);
     this.toolTip_.classList.add(strings.TOOLTIP_SHOW_CL);
   }
 
@@ -148,18 +132,7 @@ export default class ADTooltip extends ad.component.ADComponent {
   mouseOutEventHandler_() {
     this.toolTip_.classList.remove(strings.TOOLTIP_SHOW_CL);
   }
-  /**
-    * @private
-    */
-  windowResizeHandler_(){
-    const pos = this.getTooltipPosition_();
-    this.setPosition_(pos.x, pos.y);
-  }
-  /**
-    * @private
-    * @return {!Object} - object {y=x, x=x} returns postio of the tooltip
-    * element
-    */
+
   getTooltipPosition_() {
     let x;
     let y;
@@ -167,26 +140,28 @@ export default class ADTooltip extends ad.component.ADComponent {
       x = this.x_;
       y = this.y_;
     } else {
+      // A threshold distance of 32px is expected
+      // to be maintained between the tooltip and the viewport edge.
+      let breaker = 32;
+      if (this.breaker_) {
+        breaker = this.breaker_;
+      }
+      const tt = this.toolTip_;
       const elRec = this.root_.getBoundingClientRect();
-      const ttRec = this.toolTip_.getBoundingClientRect();
 
       const center = elRec.left + elRec.width/2;
-      let left = center - (this.toolTip_.clientWidth)/2; // 8 is once side padding
+      let left = center - (tt.clientWidth)/2;
 
       // Left breaker
-      if (left < 0) {
-        // A threshold distance of 32px is expected
-        // to be maintained between the tooltip and the viewport edge.
-        left = 32;
+      if (left < breaker) {
+        left = breaker;
       }
 
       // Right breaker
-      const screenWidth = document.body.clientWidth;
+      const screenWidth = window.innerWidth;
 
-      if (left + ttRec.width + 8 > screenWidth) {
-        // A threshold distance of 32px is expected
-        // to be maintained between the tooltip and the viewport edge.
-        left = screenWidth - this.toolTip_.clientWidth - 32;
+      if (left + tt.clientWidth + breaker > screenWidth) {
+        left = screenWidth - tt.clientWidth - breaker;
       }
       x = left;
       y = elRec.bottom + 8;
