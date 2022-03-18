@@ -1,0 +1,39 @@
+@import "../base/_variables";
+
+/* Primary color */
+$ad-button-text-color: $ad-brand-primary-color;
+$ad-button-text-color-inverse: $ad-inverse-brand-primary-color;
+
+$ad-button-background-color: $ad-brand-primary-color;
+$ad-button-background-color-hover: lighten($ad-button-background-color, 47%);
+$ad-button-background-color-focus: lighten($ad-button-background-color, 40%);
+$ad-button-border-color: $ad-brand-primary-color;
+
+$ad-button-contained-background-color-hover: lighten($ad-button-background-color, 10%);
+$ad-button-contained-background-color-focus: lighten($ad-button-background-color, 25%);
+
+/* Secondary color */
+$ad-button-text-secondary-color: $ad-brand-secondary-color;
+$ad-button-text-secondary-color-inverse: $ad-inverse-brand-secondary-color;
+
+$ad-button-background-secondary-color: $ad-brand-secondary-color;
+$ad-button-background-secondary-color-hover: lighten($ad-button-background-secondary-color, 47%);
+$ad-button-background-secondary-color-focus: lighten($ad-button-background-secondary-color, 40%);
+$ad-button-border-secondary-color: $ad-brand-secondary-color;
+
+$ad-button-contained-background-secondary-color-hover: lighten($ad-button-background-secondary-color, 10%);
+$ad-button-contained-background-secondary-color-focus: lighten($ad-button-background-secondary-color, 25%);
+
+
+
+/* Black & white color */
+$ad-button-text-bw-color: lighten($ad-black-color,10%);
+$ad-button-text-bw-color-inverse: $ad-white-color;
+
+$ad-button-background-bw-color: lighten($ad-black-color, 30%);
+$ad-button-background-bw-color-hover: lighten($ad-button-background-bw-color, 47%);
+$ad-button-background-bw-color-focus: lighten($ad-button-background-bw-color, 40%);
+$ad-button-border-bw-color: lighten($ad-black-color,10%);
+
+$ad-button-contained-background-bw-color-hover: lighten($ad-button-background-bw-color, 10%);
+$ad-button-contained-background-bw-color-focus: lighten($ad-button-background-bw-color, 25%);

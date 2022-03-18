@@ -97,6 +97,9 @@ module.exports = [
       'component': path.resolve('./packages/base/component.js'),
       'page-controller': path.resolve('./packages/page-controller/page-controller.js'),
       'tooltip': path.resolve('./packages/tooltip/tooltip.js'),
+      'popup': path.resolve('./packages/popup/popup.js'),
+      'form': path.resolve('./packages/form/form.js'),
+      'cookie': path.resolve('./packages/cookie/cookie.js'),
     },
     output: {
       filename: '[name].' + (IS_PROD ? 'min.' : '') + 'js',
@@ -131,7 +134,11 @@ module.exports = [
   {
     name: 'css-components',
     entry: {
+      'button': path.resolve('./packages/button/button.scss'),
       'tooltip': path.resolve('./packages/tooltip/tooltip.scss'),
+      'popup': path.resolve('./packages/popup/popup.scss'),
+      'form': path.resolve('./packages/form/form.scss'),
+      'typography': path.resolve('./packages/typography/typography.scss'),
     },
     output: {
       // In development, these are emitted as js files to facilitate hot module replacement. In

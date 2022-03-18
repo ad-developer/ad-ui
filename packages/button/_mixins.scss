@@ -1,0 +1,13 @@
+@mixin focus-keyframe($name, $hover-color, $focus-color) {
+    @keyframes select-#{$name} { 
+        0% {
+            background-color: $focus-color
+        }
+        10% {
+            background-color: $focus-color
+        } 
+        100% {
+            background-color: $hover-color
+        } 
+    }
+}

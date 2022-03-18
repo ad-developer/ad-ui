@@ -1,0 +1,192 @@
+@import "../base/_variables";
+@import "_variables";
+@import "_mixins";
+
+
+
+@include focus-keyframe(primary, $ad-button-background-color-hover, $ad-button-background-color-focus); 
+
+.ad-button {
+    display: inline-flex;
+    position: relative;
+    min-width: 64px;
+    padding: 0 8px;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    overflow: visible;
+    vertical-align: middle;
+    border-radius: 4px;
+    user-select: none;
+    font-size: .875rem;
+    line-height: 2.25rem;
+    font-weight: 500;
+    letter-spacing: .0892857143em;
+    background-color: transparent;
+    cursor: pointer;
+    color: $ad-button-text-color;
+    fill: currentColor;
+    text-decoration: none;
+    text-transform: uppercase;
+    &:hover{
+        background-color: $ad-button-background-color-hover;
+    }
+    &:focus{
+        animation: select-primary 0.4s;
+    }
+}
+.ad-button__icon {
+    display: inline-flex;
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    vertical-align: top;
+}
+.ad-button-small {
+    font-size: .775rem;
+    line-height: 1.75rem;
+}
+.ad-button-small  .ad-button__icon {
+    width: 16px;
+    height: 16px;
+}
+.ad-button-outlined {
+    padding: 0 16px;
+    border: 1px solid $ad-button-border-color;
+}
+.ad-button-contained .ad-button__icon, 
+.ad-button-outlined .ad-button__icon {
+    margin-left: -4px;
+}
+@include focus-keyframe(contained, $ad-button-contained-background-color-hover, $ad-button-background-color-focus); 
+.ad-button-contained {
+    padding: 0 16px;
+    color: $ad-button-text-color-inverse;
+    background-color: $ad-button-background-color;
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover{
+        background-color: $ad-button-contained-background-color-hover;
+    }
+    &:focus{
+        animation: select-contained 0.4s;
+    }
+}
+@include focus-keyframe(secondary, $ad-button-background-secondary-color-hover, $ad-button-background-secondary-color-focus); 
+@include focus-keyframe(contained-secondary, $ad-button-contained-background-secondary-color-hover, $ad-button-contained-background-secondary-color-focus); 
+.ad-button-secondary {
+    &.ad-button{
+        color: $ad-button-text-secondary-color;
+        &:hover{
+            background-color: $ad-button-background-secondary-color-hover;
+        }
+        &:focus{
+            animation: select-secondary 0.4s;
+        }
+    }
+    &.ad-button-outlined{
+        color: $ad-button-text-secondary-color;
+        border-color: $ad-button-border-secondary-color;
+    }
+    &.ad-button-contained{
+        color: $ad-button-text-secondary-color-inverse;
+        background-color: $ad-button-background-secondary-color;
+        &:hover{
+            background-color: $ad-button-contained-background-secondary-color-hover;
+        }
+        &:focus{
+            animation: select-contained-secondary 0.4s;
+        }
+    }
+}
+@include focus-keyframe(bw, $ad-button-background-bw-color-hover, $ad-button-background-bw-color-focus); 
+@include focus-keyframe(contained-bw, $ad-button-contained-background-bw-color-hover, $ad-button-contained-background-bw-color-focus); 
+.ad-button-bw {
+    &.ad-button{
+        color: $ad-button-text-bw-color;
+        &:hover{
+            background-color: $ad-button-background-bw-color-hover;
+        }
+        &:focus{
+            animation: select-bw 0.4s;
+        }
+    }
+    &.ad-button-outlined{
+        color: $ad-button-text-bw-color;
+        border-color: $ad-button-border-bw-color;
+    }
+    &.ad-button-contained{
+        color: $ad-button-text-bw-color-inverse;
+        background-color: $ad-button-background-bw-color;
+        &:hover{
+            background-color: $ad-button-contained-background-bw-color-hover;
+        }
+        &:focus{
+            animation: select-contained-bw 0.4s;
+        }
+    }
+}
+
+/* Floating action button FAB will go into it's own folder*/
+.fab-container{
+    display: flex;
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+}
+.ad-fab {
+    display: inline-flex;
+    position: relative;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    user-select: none;
+    overflow: hidden;
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),opacity 15ms linear 30ms,transform 270ms 0ms cubic-bezier(0, 0, 0.2, 1);
+    background-color: #c00000;
+    color: #fff;
+    fill: currentColor;
+}
+.ad-fab__icon {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+}
+.ad-fab:hover{
+    background-color: #fa4c2e;
+}
+.ad-fab:focus{
+    background-color: #ff805a;
+}
+.ad-fab-mini{
+    width: 40px;
+    height: 40px;
+}
+.ad-fab-extended {
+    font-family: Roboto, sans-serif;
+    font-size: .875rem;
+    line-height: 2.25rem;
+    font-weight: 500;
+    letter-spacing: .0892857143em;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 24px;
+    padding: 0 20px;
+    width: auto;
+    max-width: 100%;
+    height: 48px;
+}
+.ad-fab-extended .ad-fab__icon{
+    margin-left: -8px;
+    margin-right: 12px;
+}

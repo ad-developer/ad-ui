@@ -103,6 +103,16 @@ export default class ADComponent {
 
     this.root_.dispatchEvent(evt);
   }
+
+  /**
+   * Create html element
+   * @param {!string} html
+   */
+  createElement(html) {
+    const el = document.createElement('div');
+    el.innerHTML = html;
+    return el.firstChild;
+  }
 }
 
 export {ADComponent};

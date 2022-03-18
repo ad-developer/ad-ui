@@ -30,10 +30,11 @@ export default class ADPageController extends ad.component.ADComponent {
   }
 
   init() {
-    // Package Controlle
-    // RPC Controller
+    // Package Controller
+    // Ajax Controller
     // Socket Controller
     // Cache Controller
+    // State controller
   }
 }
 

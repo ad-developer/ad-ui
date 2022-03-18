@@ -90,7 +90,6 @@ export default class ADTooltip extends ad.component.ADComponent {
 
       this.toolTip_ = tooltip;
       this.root_.insertAdjacentElement('afterend', tooltip);
-      
     } else {
       this.toolTip_.innerHTML = toolTipContent;
     }
@@ -102,7 +101,7 @@ export default class ADTooltip extends ad.component.ADComponent {
       maxWidth = this.maxLength_ + 'px';
     }
 
-    this.toolTip_.style['white-space'] = whiteSpace
+    this.toolTip_.style['white-space'] = whiteSpace;
     this.toolTip_.style['max-width'] = maxWidth;
   }
 
@@ -170,7 +169,6 @@ export default class ADTooltip extends ad.component.ADComponent {
     this.toolTip_.style.left = x + 'px';
     this.toolTip_.style.top = y + 'px';
   }
- 
 }
 
 export {ADTooltip};

@@ -1,0 +1,17 @@
+@import "../base/_variables";
+@import "_variables";
+
+.ad-popup {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow:$ad-popup-shadow;
+    background-color: #fff;
+    z-index: $ad-z-position-level-5;
+    visibility: hidden;
+    
+    &--open {
+        visibility: visible;
+    }
+}

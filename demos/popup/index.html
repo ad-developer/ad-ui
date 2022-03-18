@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <script src="../assets/popup.css.js" charset="utf-8"></script>
+    <title>JavaScript UI Framework Demos - Popup<</title>
+
+    <style media="screen">
+        a {
+          margin-right: 8px;
+        }
+      </style>
+
+</head>
+<body>
+    <button ad-popup-ancor="test" style="display: flex; margin-left: auto;">Click me</button>
+    <div class="ad-popup" ad-popup-target="test" style="width: 200px; height: 300px">
+        Some content is here
+    </div>
+    <script src="../assets/component.js" charset="utf-8"></script>
+    <script src="../assets/popup.js" charset="utf-8"></script>
+    <script type="text/javascript">
+     const el = document.querySelector('[ad-popup-ancor]');
+     ad.popup.ADPopUp.attachTo(el,{
+         //top: 200,
+         //left: 100,
+         //keepOpened: true,
+         template: `<div class="ad-popup" style="padding: 24px;">
+                    This is a list of items:
+                    <ul>
+                        <li>Item one</li>
+                        <li>Item one</li>
+                        <li>Item one</li>
+                        <li>Item one</li>
+                        <li>Item one</li>
+                        <li>Item one</li>
+                        <li>Item one</li>
+                        <li>Item one</li>
+                        <li>Item one</li>
+                        <li>Item one</li>
+                        <li>Item one</li>
+                    </ul>
+            </div>`
+     });    
+    </script>
+</body>
+</html>

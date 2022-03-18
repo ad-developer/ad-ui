@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <script src="../assets/button.css.js" charset="utf-8"></script>
+    <title>JavaScript UI Framework Demos - Button<</title>
+    <style media="screen">
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: Roboto, sans-serif;
+            font-size: 1em;
+            font-weight: 400;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 50px;
+        }
+        .container h1 {
+            font-size: 1.1em;
+            border-bottom: 1px solid #ccc;
+        }
+        .row {
+            display: inline-flex;
+            width: 100%;
+            margin-bottom: 24px;
+            
+        }
+        .column {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            align-items: flex-start;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Primary color -->
+        <div>
+            <div>
+                <h1>
+                    Text button base
+                </h1>
+                <div class="row">
+                    <div class="column">
+                        <button class="ad-button">
+                            <span>ok</span>
+                        </button>
+                    </div>
+                    <div class="column">
+                        <button class="ad-button">
+                            <i class="ad-button__icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                </svg>
+                            </i>
+                            add
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h1>
+                    Text button small 
+                </h1>
+                <div class="row">
+                    <div class="column">
+                        <button class="ad-button ad-button-small">
+                            <span>Button</span>
+                        </button>
+                    </div>
+                    <div class="column">
+                        <button class="ad-button ad-button-small">
+                            <i class="ad-button__icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                </svg>
+                            </i>
+                            Button
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h1>
+                    Outlined button base
+                </h1>
+                <div class="row">
+                    <div class="column">
+                        <button class="ad-button ad-button-outlined">
+                            Button
+                        </button>
+                    </div>
+                    <div class="column">
+                        <button class="ad-button ad-button-outlined">
+                            <i class="ad-button__icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                </svg>
+                            </i>
+                            Button
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h1>
+                    Outlined button small
+                </h1>
+                <div class="row">
+                    <div class="column">
+                        <button class="ad-button ad-button-outlined ad-button-small">
+                            Button
+                        </button>
+                    </div>
+                    <div class="column">
+                        <button class="ad-button ad-button-outlined ad-button-small">
+                            <i class="ad-button__icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                </svg>
+                            </i>
+                            Button
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h1>
+                    Contained button base
+                </h1>
+                <div class="row">
+                    <div class="column">
+                        <button class="ad-button ad-button-contained">
+                            Button
+                        </button>
+                    </div>
+                    <div class="column">
+                        <button class="ad-button ad-button-contained">
+                            <i class="ad-button__icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                </svg>
+                            </i>
+                            Button
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h1>
+                    Contained button small
+                </h1>
+                <div class="row">
+                    <div class="column">
+                        <button class="ad-button ad-button-contained ad-button-small">
+                            Button
+                        </button>
+                    </div>
+                    <div class="column">
+                        <button class="ad-button ad-button-contained ad-button-small">
+                            <i class="ad-button__icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                </svg>
+                            </i>
+                            Button
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Secondary color -->
+        <div>
+            <div>
+                <h1>
+                    Text button base
+                </h1>
+                <div class="row">
+                    <div class="column">
+                        <button class="ad-button ad-button-secondary">
+                            <span>ok</span>
+                        </button>
+                    </div>
+                    <div class="column">
+                        <button class="ad-button ad-button-secondary">
+                            <i class="ad-button__icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                </svg>
+                            </i>
+                            add
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h1>
+                    Text button small 
+                </h1>
+                <div class="row">
+                    <div class="column">
+                        <button class="ad-button ad-button-small ad-button-secondary">
+                            <span>Button</span>
+                        </button>
+                    </div>
+                    <div class="column">
+                        <button class="ad-button ad-button-small ad-button-secondary">
+                            <i class="ad-button__icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                </svg>
+                            </i>
+                            Button
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h1>
+                    Outlined button base
+                </h1>
+                <div class="row">
+                    <div class="column">
+                        <button class="ad-button ad-button-outlined ad-button-secondary">
+                            Button
+                        </button>
+                    </div>
+                    <div class="column">
+                        <button class="ad-button ad-button-outlined ad-button-secondary">
+                            <i class="ad-button__icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                </svg>
+                            </i>
+                            Button
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h1>
+                    Outlined button small
+                </h1>
+                <div class="row">
+                    <div class="column">
+                        <button class="ad-button ad-button-outlined ad-button-small ad-button-secondary">
+                            Button
+                        </button>
+                    </div>
+                    <div class="column">
+                        <button class="ad-button ad-button-outlined ad-button-small ad-button-secondary">
+                            <i class="ad-button__icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                </svg>
+                            </i>
+                            Button
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h1>
+                    Contained button base
+                </h1>
+                <div class="row">
+                    <div class="column">
+                        <button class="ad-button ad-button-contained ad-button-secondary">
+                            Button
+                        </button>
+                    </div>
+                    <div class="column">
+                        <button class="ad-button ad-button-contained ad-button-secondary">
+                            <i class="ad-button__icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                </svg>
+                            </i>
+                            Button
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h1>
+                    Contained button small
+                </h1>
+                <div class="row">
+                    <div class="column">
+                        <button class="ad-button ad-button-contained ad-button-small ad-button-secondary">
+                            Button
+                        </button>
+                    </div>
+                    <div class="column">
+                        <button class="ad-button ad-button-contained ad-button-small ad-button-secondary">
+                            <i class="ad-button__icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                </svg>
+                            </i>
+                            Button
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <!-- Secondary color -->
+         <div>
+            <div>
+                <h1>
+                    Text button base
+                </h1>
+                <div class="row">
+                    <div class="column">
+                        <button class="ad-button ad-button-bw">
+                            <span>ok</span>
+                        </button>
+                    </div>
+                    <div class="column">
+                        <button class="ad-button ad-button-bw">
+                            <i class="ad-button__icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                </svg>
+                            </i>
+                            add
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h1>
+                    Text button small 
+                </h1>
+                <div class="row">
+                    <div class="column">
+                        <button class="ad-button ad-button-small ad-button-bw">
+                            <span>Button</span>
+                        </button>
+                    </div>
+                    <div class="column">
+                        <button class="ad-button ad-button-small ad-button-bw">
+                            <i class="ad-button__icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                </svg>
+                            </i>
+                            Button
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h1>
+                    Outlined button base
+                </h1>
+                <div class="row">
+                    <div class="column">
+                        <button class="ad-button ad-button-outlined ad-button-bw">
+                            Submit claim
+                        </button>
+                    </div>
+                    <div class="column">
+                        <button class="ad-button ad-button-outlined ad-button-bw">
+                            <i class="ad-button__icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                </svg>
+                            </i>
+                            Add new product
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h1>
+                    Outlined button small
+                </h1>
+                <div class="row">
+                    <div class="column">
+                        <button class="ad-button ad-button-outlined ad-button-small ad-button-bw">
+                            Button
+                        </button>
+                    </div>
+                    <div class="column">
+                        <button class="ad-button ad-button-outlined ad-button-small ad-button-bw">
+                            <i class="ad-button__icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                </svg>
+                            </i>
+                            Button
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h1>
+                    Contained button base
+                </h1>
+                <div class="row">
+                    <div class="column">
+                        <button class="ad-button ad-button-contained ad-button-bw">
+                            Add new product
+                        </button>
+                    </div>
+                    <div class="column">
+                        <button class="ad-button ad-button-contained ad-button-bw">
+                            <i class="ad-button__icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                </svg>
+                            </i>
+                            Button
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h1>
+                    Contained button small
+                </h1>
+                <div class="row">
+                    <div class="column">
+                        <button class="ad-button ad-button-contained ad-button-small ad-button-bw">
+                            Button
+                        </button>
+                    </div>
+                    <div class="column">
+                        <button class="ad-button ad-button-contained ad-button-small ad-button-bw">
+                            <i class="ad-button__icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                </svg>
+                            </i>
+                            Button
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+    
+    </script>
+</body>
+</html>

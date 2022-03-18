@@ -1,0 +1,9 @@
+@import "../base/_variables";
+
+$ad-tooltip-text-color: $ad-white-color !default;
+$ad-tooltip-background-color: #616161 !default;
+$ad-tooltip-min-height: 24px !default;
+$ad-tooltip-max-width: 250px !default;
+$ad-tooltip-padding: 4px 8px !default;
+$ad-tooltip-corner-radius: 2px !default;
+$ad-tooltip-z-position: $ad-z-position-top;
