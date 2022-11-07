@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <script src="../assets/typography.css.js" charset="utf-8"></script>
     <script src="../assets/button.css.js" charset="utf-8"></script>
     <script src="../assets/form.css.js" charset="utf-8"></script>
     <title>JavaScript UI Framework Demos - Form<</title>
@@ -10,15 +11,74 @@
     </style>
 </head>
 <body>
-    <div class="ad-form">
-        <div class="ad-form-group">
-            <label for="firstName" class="ad-control-label">First Name</label>
-            <input type="text" class="ad-form-control" naem="firstName" ad-id="firstName">
+    <div class="ad-form ad-typography--body1" style="width: 600px; margin-left: 50px;">
+    <!--    
+        <div class="ad-input-group ad-error">
+            <label for="firstName" class="ad-input-group-text">First Name</label>
+            <div class="ad-control-group">
+                <input type="text" class="ad-form-control" name="firstName" ad-id="firstName">
+            </div>
         </div>
-        <div class="ad-form-group">
-            <label for="lastName" class="ad-control-label">Last Name</label>
-            <input type="text" class="ad-form-control" naem="lastName" ad-id="lastName">
+        <div class="ad-input-group ad-input-group-row ad-error">
+            <label for="lastName" class="ad-input-group-text">Last Name</label>
+            <div class="ad-control-group">
+                <input type="text" class="ad-form-control" name="lastName" ad-id="lastName">
+            </div>    
         </div>
+        <div class="ad-input-group ad-input-group-row ad-error">
+            <label for="description" class="ad-input-group-text">Description</label>
+            <div class="ad-control-group">
+                <textarea class="ad-form-control" name="description" ad-id="description"></textarea>
+            </div>
+        </div>
+    -->
+        <!-- Control group with the error message -->
+        <div class="ad-input-group ad-input-group-row ad-error">
+            <div class="ad-input-group__wrapper">
+                <label for="state" class="ad-input-group-text">State</label>
+                <div class="ad-control-group">
+                    <select name="state" class="ad-form-control">
+                        <option value=""></option>
+                        <option value="AK">AK</option>
+                        <option value="AZ">AZ</option>
+                    </select>
+                </div>
+            </div>
+            <div class="ad-error-message">Select a state</div>
+        </div>
+   
+        <div class="ad-input-group ad-error">
+            <div class="ad-input-group__wrapper">
+                <label for="firstName" class="ad-input-group-text">First Name</label>
+                <div class="ad-control-group">
+                    <input type="text" class="ad-form-control" name="firstName" ad-id="firstName">
+                    <i class="ad-icon-button">
+                        <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false">
+                            <g>
+                                <path d="M21,6H3V5h18V6z M15,11H3v1h12V11z M9,17H3v1h6V17z" ></path>
+                            </g>
+                        </svg>
+                    </i>
+                </div>
+            </div>
+            <div class="ad-error-message">First name is required</div>
+        </div>
+         <!--    
+        <div class="ad-input-group ad-input-group-row">
+            <label for="lastName" class="ad-input-group-text">Last Name</label>
+            <div class="ad-control-group">
+                <input type="text" class="ad-form-control" name="lastName" ad-id="lastName">
+                <i class="ad-icon-button">
+                    <svg viewBox="0 0 16 16" preserveAspectRatio="xMidYMid meet" focusable="false">
+                        <g>
+                            <path d="M3.54,2A1.55,1.55,0,0,0,2,3.13L1,7.37C.83,8.24,1,9,2,9H6L4.52,12.54A1.17,1.17,0,0,0,5.71,14a1.49,1.49,0,0,0,1.09-.46L11,9h4V2ZM6.07,12.86a.51.51,0,0,1-.36.14.28.28,0,0,1-.22-.09l0-.05L6.92,9.39,7.5,8H2a1.5,1.5,0,0,1,0-.41L3,3.35A.58.58,0,0,1,3.54,3H10V8.61ZM14,8H11l0-5h3Z">
+                            </path>
+                        </g>
+                    </svg>
+                </i>
+            </div>    
+        </div>
+    -->
     </div>
 </div>
     <script src="../assets/component.js" charset="utf-8"></script>

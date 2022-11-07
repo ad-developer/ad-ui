@@ -3,30 +3,39 @@
 
 .ad-form {
     display: flex;
+    flex-direction: column;
     position: relative;
     background-color: $ad-form-background-color;
     padding: $ad-form-padding;
 }
-.ad-form-group {
+.ad-input-group {
     display: flex;
     flex-direction: column;
     margin-bottom: 8px;
 }
-.ad-form-group-row{
-    flex-direction: row;
-    align-items: center;
+.ad-input-group__wrapper {
+    display: flex;
+    flex-direction: column;
 }
-.ad-form-group-row .ad-control-label {
+.ad-input-group-row .ad-input-group__wrapper{
+    flex-direction: row;
+}
+.ad-input-group-row .ad-input-group-text {
+    width: 30%;
+    justify-content: right;
     padding-bottom: 0px;
 }
-.ad-control-label {
+.ad-input-group-row .ad-control-group {
+    width: 70%;
+}
+.ad-input-group-text {
     display: flex;
     white-space: nowrap;
     overflow-x: hidden;
     padding-right: 16px;
     padding-bottom: 4px;
 }
-.ad-control-group{
+.ad-control-group {
     display: flex;
     position: relative;
 }
@@ -40,11 +49,18 @@
     height: 24px;
     min-height: 24px;
     padding-bottom: 0px;
-    border: 1px solid #fff;
+    border: 1px solid #ddd;
+    border-left: none;
     border-radius: 0px;
     background-color: #fff;
+    box-sizing: border-box;
+    cursor: pointer;
 }
-.ad-control-group svg{
+.ad-control-group .ad-icon-button:hover {
+    background-color: #f3f3f3;
+    border-color: #ccc;
+}
+.ad-control-group svg {
     display: flex;
     padding: 0px;
     width: 20px;
@@ -54,37 +70,68 @@
     display: flex;
     width: 100%;
     height: 24px;
-    padding: 0 0px;
-    border: 1px solid #ccc;
+    padding: 0 8px;
+    border: 1px solid #ddd;
     box-sizing: border-box;
+    font: inherit;
     cursor: text;
+    outline: none;
 }
-select.ad-form-control{
+.ad-form-control:hover {
+    border-color: #ccc;
+}
+select.ad-form-control {
     padding-right: 0px;
     cursor: default;
 }
-[type=checkbox].ad-form-control{
+textarea.ad-form-control {
+    padding-top: 8px;
+    padding: 8px; 
+    min-height: 100px;
+}
+[type=checkbox].ad-form-control {
     width: 16px;
     height: 16px;
     padding: 0px;
 }
-.ad-form-control::-ms-clear{
+.ad-form-control::-ms-clear {
     display: none;
 }
-.ad-form--inline .ad-form-group {
+.ad-form--inline .ad-input-group {
     flex-direction: row;
     align-items: center;
     height: 400px;
     margin-bottom: 0px;
 }
-.ad-form--inline .ad-control-label{
+.ad-form--inline .ad-input-group-text {
     justify-content: flex-end;
     width: 30%;
     pad: 0px;
 }
-.ad-error .ad-control-label,
-.ad-error .ad-form-control::placeholder,
-.ad-error :-ms-input-placeholder,
-.ad-error ::-moz-placeholder {
+.ad-input-group .ad-error-message{
+    visibility: hidden;
+    height: 12px;
+    line-height: 12px;
+    margin-top: 4px;
+    padding-left: 8px;
+    font-size: 12px;
     color: $ad-brand-danger-color;
+}
+.ad-input-group-row .ad-error-message {
+    margin-left: 30%;
+    padding-left: 16px;
+} 
+.ad-error .ad-input-group-text{
+    color: $ad-brand-danger-color;
+}
+.ad-error .ad-form-control,
+.ad-error .ad-icon-button,
+.ad-error .ad-icon-button:hover {
+    border-color: $ad-brand-danger-color;
+}
+.ad-error .ad-icon-button:hover {
+    background-color: lighten($ad-brand-danger-color, 48%);
+}
+.ad-error .ad-error-message{
+    visibility: visible;
 }

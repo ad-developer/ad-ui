@@ -113,19 +113,19 @@ module.exports = [
     },
     devtool: IS_DEV ? 'source-map' : false,
     module: {
-      rules: [{
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        options: {
-          cacheDirectory: true,
-          presets: ['@babel/preset-env'],
-        },
-      }],
+      //rules: [{
+      //  test: /\.js$/,
+      //  exclude: /node_modules/,
+      //  loader: 'babel-loader',
+      //  options: {
+      //    cacheDirectory: true,
+      //    presets: ['@babel/preset-env'],
+      //  },
+      //}],
     },
     optimization: {
       minimize: IS_PROD ? true : false,
-      minimizer: [new UglifyJSPlugin({uglifyOptions})],
+      //minimizer: [new UglifyJSPlugin({uglifyOptions})],
     },
     plugins: [
       // createBannerPlugin(),

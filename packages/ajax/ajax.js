@@ -1,13 +1,11 @@
 
 export default class ADAjax {
-
-
     constructor(...args){
         this.xhr_ = null;
         this.init(args);
     }
 
-    static buid(...args){
+    static create(...args){
         const instance = new ADAjax(args);
         return instance;
     }
@@ -20,7 +18,7 @@ export default class ADAjax {
         const $this = this;
     }
 
-    posst(url, data, header, result){
+    post(url, data, header, result){
 
     }
 }

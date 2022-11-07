@@ -1,10 +1,11 @@
 // import ADComponent from '../base/component';
 
-const strings = {
-  INSTANCE_KEY: 'ad-page-controller',
-};
-
 export default class ADPageController extends ad.component.ADComponent {
+  
+  get instanceKey(){
+    return 'ad-page-controller';
+  }
+
   /**
     * @param {!Element} root
     * @return {!ADController}
@@ -16,7 +17,7 @@ export default class ADPageController extends ad.component.ADComponent {
 
     // Attach instance to the root
     root.ad = root.ad || {};
-    root.ad[strings.INSTANCE_KEY] = instance;
+    root.ad[ADPageController.instanceKey] = instance;
     return instance;
   }
 
@@ -25,8 +26,8 @@ export default class ADPageController extends ad.component.ADComponent {
     * @return {!ADController}
     */
   static getInstance(root) {
-    return root.ad && root.ad[ADPageController.strings.INSTANCE_KEY] ?
-      root.ad[strings.INSTANCE_KEY] : null;
+    return root.ad && root.ad[ADPageController.instanceKey] ?
+      root.ad[ADPageController.instanceKey] : null;
   }
 
   init() {

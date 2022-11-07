@@ -1,3 +1,24 @@
+/**
+ *  Element template 
+ *  {
+ *      element: 'element',
+ *      tag: 'div',
+ *      attributes: [
+ *                      {attr: '', value: ''}, 
+ *                      {attr: 'ad-id': value: model.id}, 
+ *                      {}
+ *                  ], 
+ *      children: []
+ *  }
+ * 
+ *  Element model
+ *  {
+ *    element: 'element',
+ *    attributes: [{attr:'ad-id', value: 'test'}],
+ *    handler:(data) => {}
+ *  }
+ */
+
 /* const cssClasses = {};*/
 
 //import ADComponent from '../base/component';
@@ -103,7 +124,7 @@ const strings = {
                     } else if(el.hasAttribute(string.MULTISELECT_ATTR)){
                         
                         let inst;
-                        if(inst = this.isMultislect_()){
+                        if(inst = this.isMultiselect_()){
                             inst.selectedData(value);
                             processed = true;
                         }
@@ -142,7 +163,7 @@ const strings = {
                 let value;
                 if(el.hasAttribute(string.MULTISELECT_ATTR)){
                     let inst;
-                    if(inst = this.isMultislect_(el)){
+                    if(inst = this.isMultiselect_(el)){
                         value = inst.getSelectedData();
                     }
                 } else {
@@ -171,7 +192,7 @@ const strings = {
             let processed = false;
             let inst;
             if(el.hasAttribute(strings.MULTISELECT_ATTR)){
-                if(inst = this.isMultislect_(el)){
+                if(inst = this.isMultiselect_(el)){
                     inst.clear();
                     processed = true;
                 }
@@ -322,7 +343,7 @@ const strings = {
         return res;
     }
 
-    isMultislect_(el){
+    isMultiselect_(el){
         if(ad.ADMultiselect){
             return el = ad.ADMultiselect.getInstance(el);
         }
